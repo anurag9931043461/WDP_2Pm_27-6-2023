@@ -1,0 +1,83 @@
+27/6/2023
+------------
+python introduction:
+> print()
+> variable
+> comment
+> datatype
+    > int
+    > float
+    > string
+    > list
+    > tuple
+    > set
+    > frozenset
+    > dictinary
+    > bool
+    > complex
+> casting
+> input()
+> operators
+> conditional programming(if, else , elif, nested if else, nested if elif else, ternary operator )
+There are two type of loop
+> Loop
+    > For loop
+        > single for loop
+        > nested for loop
+        > Pattern using single for loop
+        > Pattern using nested for loop
+        > range()
+        > iterable
+        > break
+        > continue
+        > pass
+        > comprehension
+            > list comprehension
+            > set comprehension
+            > forzenset comprehension
+            > tuple comprehension
+            > dictionary comprehension
+                              
+    > while loop
+        > sigle while loop
+        > nested while loop
+        > pattern using single while loop
+        > pattern using nested while loop
+        > break 
+        > continue
+        > pass
+        > while loop does not support comprehension
+
+> function 
+    > def 
+        > default argument
+        > position argument
+        > keyword argument
+        > arbitrary positional argument
+        > arbitrary keyword argument
+    > return 
+    > lambda(anonymous function, fat function )
+    > nested function
+    > decorator
+    > generator(yield)
+> Package and module
+    > import 
+    > from keyword to import package and module
+    > alising using "as"
+
+> multitasking(threading)
+> garbage collector (gc)
+> OOPs(object oriented programming)
+    > class
+    > object
+    > Encapsulation
+    > polymorphism
+    > inheritance
+    > abstraction 
+        <<>> class function 
+            >> class variable 
+            >> static function
+
+> Database(CRUD--> Create , Read , Update, delete)
+    > SQL(Mysql)
+    > NoSQL(MongoDB)
