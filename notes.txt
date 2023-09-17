@@ -82,13 +82,13 @@ There are two type of loop
     > object(variable/identifier/argument)
     > Encapsulation
     > polymorphism
+        > overloading(python doesnot support)
+        > overridding 
     > inheritance
     > abstraction 
         >> class function 
             >> class variable 
             >> static function
-    > overloading(python doesnot support)
-    > overridding 
 
 > Database(CRUD--> Create , Read , Update, delete)
     > SQL(Mysql)

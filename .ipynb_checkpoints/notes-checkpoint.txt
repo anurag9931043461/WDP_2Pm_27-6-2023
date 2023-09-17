@@ -65,16 +65,28 @@ There are two type of loop
     > from keyword to import package and module
     > alising using "as"
 
-> multitasking(threading)
+> multitasking(threading,Process)
 > garbage collector (gc)
+
 > OOPs(object oriented programming)
-    > class
-    > object
+    > Programming paradigm:
+        > top line programming
+        > procedural programming/function programming
+        > object oriented programming(oop)
+    > class(Blueprint)
+        > constructor(def __init__())
+        > class variable
+        > instance variable
+        > static methods
+        > class methods
+    > object(variable/identifier/argument)
     > Encapsulation
     > polymorphism
+        > overloading(python doesnot support)
+        > overridding 
     > inheritance
     > abstraction 
-        <<>> class function 
+        >> class function 
             >> class variable 
             >> static function
 
