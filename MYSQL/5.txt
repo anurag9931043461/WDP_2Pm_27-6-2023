@@ -1,0 +1,192 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 8.0.33 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| wd12               |
+| wd2                |
+| wd5                |
+| wd7                |
+| we10               |
+| we2                |
+| we4                |
+| world              |
++--------------------+
+13 rows in set (0.00 sec)
+
+mysql> use wd2;
+Database changed
+mysql> show tables;
++---------------+
+| Tables_in_wd2 |
++---------------+
+| college       |
+| dt            |
+| event         |
+| hostel        |
+| new           |
++---------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from new;
++----+---------+------+
+| sn | name    | bill |
++----+---------+------+
+|  1 | krishna | NULL |
+|  2 | Rohan   | NULL |
+|  3 | mohan   | NULL |
++----+---------+------+
+3 rows in set (0.00 sec)
+
+mysql> update new set bill=10.50;
+Query OK, 3 rows affected (0.01 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> select * from new;
++----+---------+------+
+| sn | name    | bill |
++----+---------+------+
+|  1 | krishna | 10.5 |
+|  2 | Rohan   | 10.5 |
+|  3 | mohan   | 10.5 |
++----+---------+------+
+3 rows in set (0.00 sec)
+
+mysql> show tables;
++---------------+
+| Tables_in_wd2 |
++---------------+
+| college       |
+| dt            |
+| event         |
+| hostel        |
+| new           |
++---------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from college;
++------------+---------+--------+
+| enrollment | name    | branch |
++------------+---------+--------+
+|          1 | krishna | MCA    |
+|          2 | Mohan   | BCA    |
+|          3 | Sohan   | BBA    |
+|          4 | Monu    | B Sc.  |
+|          5 | Moni    | M Sc.  |
++------------+---------+--------+
+5 rows in set (0.01 sec)
+
+mysql> select * from restra;
+ERROR 1146 (42S02): Table 'wd2.restra' doesn't exist
+mysql> select * from hostel;
++------+------+
+| roll | room |
++------+------+
+|    1 |  202 |
+|    3 |  204 |
+|    4 |  204 |
+|   10 |  210 |
++------+------+
+4 rows in set (0.01 sec)
+
+mysql> select * from college left join hostel on college.enrollment=hostel.roll;
++------------+---------+--------+------+------+
+| enrollment | name    | branch | roll | room |
++------------+---------+--------+------+------+
+|          1 | krishna | MCA    |    1 |  202 |
+|          2 | Mohan   | BCA    | NULL | NULL |
+|          3 | Sohan   | BBA    |    3 |  204 |
+|          4 | Monu    | B Sc.  |    4 |  204 |
+|          5 | Moni    | M Sc.  | NULL | NULL |
++------------+---------+--------+------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from college right join hostel on college.enrollment=hostel.roll;
++------------+---------+--------+------+------+
+| enrollment | name    | branch | roll | room |
++------------+---------+--------+------+------+
+|          1 | krishna | MCA    |    1 |  202 |
+|          3 | Sohan   | BBA    |    3 |  204 |
+|          4 | Monu    | B Sc.  |    4 |  204 |
+|       NULL | NULL    | NULL   |   10 |  210 |
++------------+---------+--------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from college left join hostel on college.enrollment=hostel.roll union select * from college right join hostel on college.enrollment=hostel.roll;
++------------+---------+--------+------+------+
+| enrollment | name    | branch | roll | room |
++------------+---------+--------+------+------+
+|          1 | krishna | MCA    |    1 |  202 |
+|          2 | Mohan   | BCA    | NULL | NULL |
+|          3 | Sohan   | BBA    |    3 |  204 |
+|          4 | Monu    | B Sc.  |    4 |  204 |
+|          5 | Moni    | M Sc.  | NULL | NULL |
+|       NULL | NULL    | NULL   |   10 |  210 |
++------------+---------+--------+------+------+
+6 rows in set (0.00 sec)
+
+mysql> create table hostel2(roll int primary key,room int, foreign key(roll) refernces college(enrollment));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'refernces college(enrollment))' at line 1
+mysql> create table hostel2(roll int primary key,room int, foreign key(roll) references college(enrollment));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select * from college;
++------------+---------+--------+
+| enrollment | name    | branch |
++------------+---------+--------+
+|          1 | krishna | MCA    |
+|          2 | Mohan   | BCA    |
+|          3 | Sohan   | BBA    |
+|          4 | Monu    | B Sc.  |
+|          5 | Moni    | M Sc.  |
++------------+---------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from hostel2;
+Empty set (0.00 sec)
+
+mysql> insert into hostel2 values(1,202);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from hostel2;
++------+------+
+| roll | room |
++------+------+
+|    1 |  202 |
++------+------+
+1 row in set (0.00 sec)
+
+mysql> insert into hostel2 values(2,202),(5,305);
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from hostel2;
++------+------+
+| roll | room |
++------+------+
+|    1 |  202 |
+|    2 |  202 |
+|    5 |  305 |
++------+------+
+3 rows in set (0.00 sec)
+
+mysql> insert into hostel2 values(10,"Mohan");
+ERROR 1366 (HY000): Incorrect integer value: 'Mohan' for column 'room' at row 1
+mysql>

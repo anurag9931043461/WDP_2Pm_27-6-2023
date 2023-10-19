@@ -1,0 +1,299 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 28
+Server version: 8.0.33 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| wd12               |
+| wd2                |
+| wd7                |
+| world              |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use wd2;
+Database changed
+mysql> show tables;
++---------------+
+| Tables_in_wd2 |
++---------------+
+| collage       |
+| collage2      |
++---------------+
+2 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select * from collage;
++------+---------+---------+
+| s_n  | name    | bill    |
++------+---------+---------+
+|    1 | krishna |   10000 |
+|    2 | Rohan   |   34.34 |
+|    3 | Sohan   |  45.231 |
+|    4 | krishna |   13.32 |
+|    5 | Rohan   |   23.32 |
+|    6 | Sohan   |   24.32 |
+|    7 | Mohan   |   24.32 |
+|    1 | krishna | 32534.3 |
++------+---------+---------+
+8 rows in set (0.00 sec)
+
+mysql> select * from collage2;
++------------+---------+---------+
+| Enrollment | name    | fee     |
++------------+---------+---------+
+|          1 | krishna |   10800 |
+|          2 | Rohan   |  211243 |
+|          3 | Sohan   |  323454 |
+|          4 | Moni    | 42342.4 |
+|          5 | Monu    | 32432.4 |
++------------+---------+---------+
+5 rows in set (0.00 sec)
+
+mysql> -- delete
+mysql>
+mysql> delete from collage2 where enrollment=5;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from collage2;
++------------+---------+---------+
+| Enrollment | name    | fee     |
++------------+---------+---------+
+|          1 | krishna |   10800 |
+|          2 | Rohan   |  211243 |
+|          3 | Sohan   |  323454 |
+|          4 | Moni    | 42342.4 |
++------------+---------+---------+
+4 rows in set (0.00 sec)
+
+mysql> truncate collage2;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from collage2;
+Empty set (0.00 sec)
+
+mysql> show tables;
++---------------+
+| Tables_in_wd2 |
++---------------+
+| collage       |
+| collage2      |
++---------------+
+2 rows in set (0.00 sec)
+
+mysql> drop collage2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'collage2' at line 1
+mysql> drop table collage2;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show tables;
++---------------+
+| Tables_in_wd2 |
++---------------+
+| collage       |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| wd12               |
+| wd2                |
+| wd7                |
+| world              |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> drop database wd12;
+Query OK, 2 rows affected (0.02 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| wd2                |
+| wd7                |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> create database wd12;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| wd12               |
+| wd2                |
+| wd7                |
+| world              |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use wd12;
+Database changed
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> creat table college(enrollment int primary key,name varchar(50),branch varchar(20));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'creat table college(enrollment int primary key,name varchar(50),branch varchar(2' at line 1
+mysql> create table college(enrollment int primary key,name varchar(50),branch varchar(20));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into college values(1,"Ashish", "LFT"),(2,"Aadi","civil enginerring"),(3,"Ashu","fashion designing");
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> insert into college values(4,"krishna","Mechanical engineer"),(5,"Preeti singh","LLB"),(6,"krishika","Compounder");
+Query OK, 3 rows affected (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from college;
++------------+--------------+---------------------+
+| enrollment | name         | branch              |
++------------+--------------+---------------------+
+|          1 | Ashish       | LFT                 |
+|          2 | Aadi         | civil enginerring   |
+|          3 | Ashu         | fashion designing   |
+|          4 | krishna      | Mechanical engineer |
+|          5 | Preeti singh | LLB                 |
+|          6 | krishika     | Compounder          |
++------------+--------------+---------------------+
+6 rows in set (0.00 sec)
+
+mysql> create table hostel(enrollment int primary key,room int);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into hostel(4,202),(5,303),6(303);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '4,202),(5,303),6(303)' at line 1
+mysql> insert into hostel values(4,202),(5,303),(6,303);
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> insert into college values(10,202);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into hostel values(10,202);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from college;
++------------+--------------+---------------------+
+| enrollment | name         | branch              |
++------------+--------------+---------------------+
+|          1 | Ashish       | LFT                 |
+|          2 | Aadi         | civil enginerring   |
+|          3 | Ashu         | fashion designing   |
+|          4 | krishna      | Mechanical engineer |
+|          5 | Preeti singh | LLB                 |
+|          6 | krishika     | Compounder          |
++------------+--------------+---------------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from hostel;
++------------+------+
+| enrollment | room |
++------------+------+
+|          4 |  202 |
+|          5 |  303 |
+|          6 |  303 |
+|         10 |  202 |
++------------+------+
+4 rows in set (0.00 sec)
+
+mysql> -- inner join
+mysql> select * from college inner join hostel on college.enrollment=hostel.enrollment;
++------------+--------------+---------------------+------------+------+
+| enrollment | name         | branch              | enrollment | room |
++------------+--------------+---------------------+------------+------+
+|          4 | krishna      | Mechanical engineer |          4 |  202 |
+|          5 | Preeti singh | LLB                 |          5 |  303 |
+|          6 | krishika     | Compounder          |          6 |  303 |
++------------+--------------+---------------------+------------+------+
+3 rows in set (0.00 sec)
+
+mysql> select college.enrollment,college.name, college.branch, hostel.room from college inner join hostel on college.enrollment=hostel.enrollment;
++------------+--------------+---------------------+------+
+| enrollment | name         | branch              | room |
++------------+--------------+---------------------+------+
+|          4 | krishna      | Mechanical engineer |  202 |
+|          5 | Preeti singh | LLB                 |  303 |
+|          6 | krishika     | Compounder          |  303 |
++------------+--------------+---------------------+------+
+3 rows in set (0.00 sec)
+
+mysql> -- alise
+mysql> select c.enrollment,c.name, c.branch, h.room from college as c inner join hostel as h on c.enrollment=h.enrollment;
++------------+--------------+---------------------+------+
+| enrollment | name         | branch              | room |
++------------+--------------+---------------------+------+
+|          4 | krishna      | Mechanical engineer |  202 |
+|          5 | Preeti singh | LLB                 |  303 |
+|          6 | krishika     | Compounder          |  303 |
++------------+--------------+---------------------+------+
+3 rows in set (0.00 sec)
+
+mysql> -- left join
+mysql> select * from college left join hostel on college.enrollment=hostel.enrollment;
++------------+--------------+---------------------+------------+------+
+| enrollment | name         | branch              | enrollment | room |
++------------+--------------+---------------------+------------+------+
+|          1 | Ashish       | LFT                 |       NULL | NULL |
+|          2 | Aadi         | civil enginerring   |       NULL | NULL |
+|          3 | Ashu         | fashion designing   |       NULL | NULL |
+|          4 | krishna      | Mechanical engineer |          4 |  202 |
+|          5 | Preeti singh | LLB                 |          5 |  303 |
+|          6 | krishika     | Compounder          |          6 |  303 |
++------------+--------------+---------------------+------------+------+
+6 rows in set (0.00 sec)
+
+mysql> select * from college right join hostel on college.enrollment=hostel.enrollment;
++------------+--------------+---------------------+------------+------+
+| enrollment | name         | branch              | enrollment | room |
++------------+--------------+---------------------+------------+------+
+|          4 | krishna      | Mechanical engineer |          4 |  202 |
+|          5 | Preeti singh | LLB                 |          5 |  303 |
+|          6 | krishika     | Compounder          |          6 |  303 |
+|       NULL | NULL         | NULL                |         10 |  202 |
++------------+--------------+---------------------+------------+------+
+4 rows in set (0.00 sec)
+
+mysql>

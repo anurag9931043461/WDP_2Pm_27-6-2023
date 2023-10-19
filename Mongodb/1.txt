@@ -1,0 +1,23 @@
+Quest 1: differnce between mongodb and mysql ?
+----------------------------------------------
+mysql: create database,schema,table,row/tuple/record/observation/sample
+
+mongodb: create database,no schema,collection(table),document(row/tuple/record/observation/sample)
+
+Ques 2: what is documet?
+
+Answer: document is a json type data.
+example:
+{name:"krishna",age:27}   # document
+
+nested/embedding documet supported by json
+
+{name:"krishna",age:27,gradian:{mother:"Suman",father:"Sunil",mother_gardian:{mother:"Girjadevi",father:"Sitaram"}}} 
+
+summary: 
+--------
+> less realation
+> store data together.
+
+Quest 3:what is BSON?
+answer: BSON is binary conversion of json
